@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="with=device-device-width, initial-scale=1.0">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: 'EB Garamond', serif;
+                box-sizing: border-box;
+            }
+            :root{
+                --g_color: rgb(79, 124, 5);
+                --f_color:rgba(28, 54, 2, 0.4);
+                --button-color:rgba(5, 225, 5, 0.7);
+                --c-color:rgba(28, 54, 2,1);
+            }
+            /* avt */
+            .header{
+                min-height: 60vh;
+                width: 100%;
+                background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Oxford_by_John_Cairns_23_7_19_22_wecompress_com_8ea3581fae.webp);
+                background-position:center ;
+                background-size: cover;
+                position: relative;
+            }    
+            nav{
+                display: flex;
+                justify-content: space-between;   
+                align-items: center ;
+            }
+            nav a img{
+                width: 30%;
+            }  
+            .nav-links{
+                list-style: none;
+                justify-content: end;
+                
+            }
+            .nav-links ul li{
+                list-style: none;
+                display: inline-block;
+                padding: 8px 12px;
+                position: relative;
+            }
+            .nav-links ul li a{
+                
+                color:#fff;
+                text-decoration: none;
+                font-size: 26px;
+                transition: 0.5s;
+            }
+            .nav-links ul li a:hover{
+                color:rgb(173, 249, 50);
+            }
+
+            .text-box{
+                width: 90%;
+                position: absolute;
+                text-align: center;
+                top: 45%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                
+            }
+            .text-box-title{
+                font-size: 62px;
+                color:#fff
+            }
+
+            .nav-links i{
+                display: none;
+            }
+            .menu i{
+                display:none;
+            }
+            .text-box button{
+                padding: 10px;
+                width: 180px;
+                background-color:var(--g_color);
+                border-radius: 50px;
+            }
+            .text-box button a{
+                color: #fff;
+                border-color: #fff;
+                font-size: 23px;
+                text-decoration: none;
+            }
+            .text-box p{
+                font-size: 23px;
+                color:#fff;
+                margin:10px 0;
+            }
+
+            @media(max-width:700px){
+                nav a img{
+                    align-items: start;
+                    width:200px;
+                    /* flex-direction: ; */
+                }
+                .text-box-title{
+                    font-size: 26px;
+                    color:#fff ;
+                }
+                .nav-links ul li{
+                    display: block;
+                }
+                .nav-links{
+                    position: absolute;
+                    background-color: rgba(59, 113, 5, 0.8);
+                    width: 50%;
+                    height:60vh;
+                    top:0;
+                    border-radius: 10px;
+                    right:-200px;
+                    z-index:2;/*chi so uu tien(đè)*/
+                    transition: 0.5s;
+                }
+                .nav-links ul li a{   
+                    margin-left:10px ;
+                    font-size: 17px;
+                }
+                .nav-links i{
+                    display: block;
+                    color: #fff;
+                    font-size: 30px;
+                    margin-bottom: 10px;
+                    cursor: pointer;
+                }
+                .menu i{
+                    display:block;
+                    margin-left: 10px;
+                    color: #fff;
+                    font-size: 35px;
+                    cursor: pointer;
+                }
+            
+                .text-box button{
+                    padding: 10px;
+                    width: 180px;
+                    background-color:var(--g_color);
+                    border-radius: 50px;
+                }
+                .text-box button a{
+                    color: #fff;
+                    border-color: #fff;
+                    font-size: 17px;
+                    text-decoration: none;
+                }
+                .text-box p{
+                    font-size: 17px;
+                    color:#fff;
+                    margin:8px 0;
+                }
+            }  
+            
+            /* Footer */
+            .footer{
+                display: flex;
+                align-items:center ;
+                justify-content: center;
+                flex-direction: column;
+                background-color: var(--f_color);
+                height: 17vh;
+            }
+            .footer h4{
+                font-size: 26px;
+                color:#fff;
+            }
+            .footer p{ 
+                margin-top: 17px;
+                color:#fff;
+                font-size: 17px;
+            }
+            .icon{
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .icon .bx{
+                margin-left: 5px;
+                margin-right: 5px;
+                cursor: pointer;
+                color:var(--f_color);
+            }
+            .footer button{
+                padding: 5px;
+                width: 180px;
+                background-color:var(--button-color);
+                border-radius: 50px;
+            }
+            .footer button a{
+                color: #fff;
+                border-color: #fff;
+                font-size: 23px;
+                text-decoration: none;
+            }
+            @media(max-width:700px){
+                .footer h4{
+                    font-size: 17px;
+                }
+                .icon{
+                    text-align: center;
+                    margin-bottom: 0px;
+                }
+                .footer button a{
+                    font-size: 17px;
+                }
+                .footer p{ 
+                    margin-top: 5px;
+                    font-size: 12px;
+                }
+            }
+            /* Content */
+            .row + .row{
+                margin-top: 50px;
+            }
+
+            .row{
+                max-width: 62vw;
+                margin:auto;
+                padding: 0px 0;
+            }
+            .row__container{
+                display: flex;
+            }
+            .co{
+                flex:2;
+                margin:auto 0;
+            }
+            .co h3{
+                font-size: 26px;
+                margin: 17px 0;
+                color:var(--g_color);
+            }
+            .co p{
+                font-size: 17px;
+                color:var(--c-color)
+            }
+            .row h1{
+                font-size: 35px;
+                color: var(--g_color);
+            }
+            /* experience */
+            .wrapper{
+                display: none;
+            }
+            
+            .gallery{
+                display: flex;
+                align-items: center;
+                 flex:3;
+            }
+            .gallery__inner{
+                max-width: 32vw;
+            }
+            .gallery__inner img{
+                position: relative;
+                width: 30vw;
+            }
+            /* Review */
+            .row__container img{
+                position: relative;
+                height: 500px;
+                
+            }
+            .text{
+                margin: auto 20px;
+            }
+            .text h3{
+                font-size: 26px;
+                color:var(--g_color);
+            }
+            .text p{
+                font-size: 17px;
+                color:var(--c-color);
+            }
+            p{
+                font-size: 17px;
+                color: var(--c-color);
+            }
+            a{
+                text-decoration: none;
+                font-size: 17px;
+            }
+            
+            /* stay */
+            .wrapper__stay{
+                display: none;
+            }
+            .stay__inf{
+                display: flex;
+            }
+            .gallery__stay{
+                display: flex;
+                align-items: center;
+                 flex:1;
+            }
+            .gallery__inner__stay{
+                max-width: 32vw;
+            }
+            .gallery__inner__stay img{
+                position: relative;
+                width: 30vw;
+            }
+            .control{
+                font-size: 35px;
+                position: absolute;
+                color:var(--c-color);
+                cursor: pointer;
+            }
+            .control:hover{
+                color: rgba(28, 54, 2,0.5);
+            }
+            .control.next{
+                margin-left: 28vw;
+            }
+            .control.next__stay{
+                margin-left: 28vw;
+            }
+            .control.next__out{
+                margin-left: 35px;
+            }
+            .control.next__tutor{
+                margin-left: 35px;
+                color:black
+            }
+            /* Typical */
+            .gallery__item{
+                margin-top: 35px;
+                display: flex;
+            }
+            .gallery__item img{
+                position: relative;
+                width: 30vw;
+            }
+            .des{
+                margin :auto 0;
+            }
+            .des h3{
+                font-size: 26px;
+                color: var(--g_color);
+            }
+            .des p{
+                font-size: 17px;
+                color: var(--c-color);
+            }
+            .slide{
+                display: none;
+            }
+            /* Tutor */
+            .gallery__tutor{
+                margin-top: 35px;
+                display: flex;
+            }
+            .gallery__tutor img{
+                position: relative;
+                width: 17vw;
+            }
+            .tutor__des{
+                margin :auto 100px;
+            }
+            .name{
+                font-size: 26px;
+                color: var(--g_color);
+            }
+            .inf{
+                font-size: 17px;
+                color: var(--c-color);
+            }
+            .slide__tutors{
+                display: none;
+            }
+            @media(max-width:700px){
+            .row + .row{
+                margin-top: 20px;
+            }
+
+            .row{
+                max-width: 90vw;
+                margin:auto;
+                padding: 0px 0;
+            }
+            .row__container{
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            .co{
+                flex:2;
+                margin:auto 0;
+            }
+            .co h3{
+                font-size: 17px;
+                margin: 17px 0;
+                color:var(--g_color);
+            }
+            .co p{
+                font-size: 12px;
+                color:var(--c-color)
+            }
+            .row h1{
+                font-size: 23px;
+                color: var(--g_color);
+            }
+            .learning{
+                flex-direction: row;
+                overflow-x: auto;
+            }
+            /* experience */
+            
+            .wrapper{
+                display: none;
+            }
+            
+            .gallery{
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                 flex:3;
+            }
+            .gallery__inner{
+                max-width: 100vw;
+            }
+            .gallery__inner img{
+                position: relative;
+                width: 90vw;
+            }
+            /* Review */
+            .row__container img{
+                position: relative;
+                height: 300px;
+                object-fit:contain ;
+                
+            }
+            .text{
+                margin: auto 20px;
+            }
+            .text h3{
+                font-size: 17px;
+                color:var(--g_color);
+            }
+            .text p{
+                font-size: 12px;
+                color:var(--c-color);
+            }
+            p{
+                font-size: 12px;
+                color: var(--c-color);
+            }
+            a{
+                text-decoration: none;
+                font-size: 12px;
+            }
+            
+            /* stay */
+            .wrapper__stay{
+                display: none;
+            }
+            
+            .gallery__stay{
+                display: flex;
+                align-items: center;
+                 flex:1;
+            }
+            .gallery__inner__stay{
+                max-width: 100vw;
+            }
+            .gallery__inner__stay img{
+                position: relative;
+                width: 90vw;
+            }
+            .control{
+                font-size: 23px;
+                position: absolute;
+                color:rgba(17, 15, 15, 0.8);
+                cursor: pointer;
+            }
+            .control:hover{
+                color: rgba(56, 52, 52, 0.5);
+            }
+            .control.prev{
+                left: 23px;
+            }
+            .control.next{
+                margin-left: 80vw;
+            }
+            .control.next__stay{
+                margin-left: 80vw;
+            }
+            .control.next__out{
+                margin-left: 23px;
+            }
+            .control.next__tutor{
+                margin-left: 35px;
+                color:black
+            }
+            /* Typical outing*/
+            .gallery__item{
+                margin-top: 23px;
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            .gallery__item img{
+                position: relative;
+                width: 90vw;
+            }
+            .des{
+                margin :auto 0;
+            }
+            .des h3{
+                font-size: 17px;
+                color: var(--g_color);
+            }
+            .des p{
+                font-size: 12px;
+                color: var(--c-color);
+            }
+            .slide{
+                display: none;
+            }
+            /* Tutor */
+            .gallery__tutor{
+                margin-top: 35px;
+                display: flex;
+                flex-direction: column;
+            }
+            .gallery__tutor img{
+                position: relative;
+                width: 71vw;
+                height: 62vw;
+            }
+            .tutor__des{
+                margin :auto ;
+            }
+            .name{
+                font-size: 17px;
+                color: var(--g_color);
+            }
+            .inf{
+                font-size: 12px;
+                color: var(--c-color);
+            }
+            .slide__tutors{
+                display: none;
+            }
+            }
+            .background{
+                margin:80px;
+                background: url(https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/static/lightRightLogoGradient_cuprbh.webp);
+                background-repeat: no-repeat;
+                background-size: cover;
+
+            }
+            /* Date &time */
+            .class +.class{
+                margin-top: 23px;
+            }
+            .classes{
+                max-width: 62vw;
+                margin: auto;
+                padding: 50px 0;
+            }
+            .classes h1{
+                font-size: 35px;
+                color: var(--g_color);
+            }
+            .class{
+                margin: auto;
+                display: flex;
+                background-color: #fff;
+                justify-content: space-between;
+            }
+            .class__date{
+                font-size: 17px;
+                color: var(--g_color);
+            }
+            .class__condition{
+                font-size: 17px;
+                color: var(--c-color);
+            }
+            .class__status{
+                display: flex;
+
+            }
+            .bx-calendar-x{
+                font-size: 23px;
+                color: rgba(156, 152, 152, 0.5);
+            }
+            .bx-calendar-check{
+                font-size: 23px;
+                color: var(--g_color);
+            }
+
+            .class button{
+                padding: 5px;
+                width: 120px;
+                background-color:rgba(156, 152, 152, 0.5);
+                border-radius: 50px;
+                border-color: rgba(156, 152, 152, 0.5);
+            }
+            .class button a{
+                color: #fff;
+                border-color: #fff;
+                font-size: 17px;
+                text-decoration: none;
+            }
+            .class-avai button{
+                background-color:rgb(79, 124, 5);
+            }
+            .price__standard{
+                font-size: 17px;
+                color:var(--c-color)
+            }
+            .price__en{
+                font-size: 17px;
+                color:var(--c-color)
+            }
+            @media(max-width:700px){
+                .background{
+                margin:0px;
+                background: url(https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/static/lightRightLogoGradient_cuprbh.webp);
+                background-repeat: no-repeat;
+                background-size: cover;
+
+            }
+                .class +.class{
+                margin-top: 23px;
+            }
+            .classes{
+                min-width: 90vw;
+                margin: auto;
+                padding: 10px 0;
+            }
+            .classes h1{
+                font-size: 23px;
+            }
+            .class{
+                flex-direction: column;
+            }
+            .class__date{
+                font-size: 12px;
+            }
+            .class__condition{
+                font-size: 12px;
+            }
+            .bx-calendar-x{
+                font-size: 17px;
+            }
+            .bx-calendar-check{
+                font-size: 17px;
+            }
+
+            .class button{
+                padding: 0px;
+                width: 80px;
+                background-color:rgba(156, 152, 152, 0.5);
+                border-radius: 20px;
+                border-color: rgba(156, 152, 152, 0.5);
+            }
+            .class button a{
+                font-size: 12px;
+            }
+            .class-avai button{
+                background-color:rgb(79, 124, 5);
+            }
+            .price__standard{
+                font-size: 12px;
+            }
+            .price__en{
+                font-size: 12px;
+            }
+            }
+        </style>
+    </head>
+    <body>
+        <section class="header">
+            <nav>
+                <a href="/index.html"><img src="https://images.squarespace-cdn.com/content/v1/57d155c39de4bbd9d3069285/1593776522976-H6ROQ0OOZRV1RWSYYV8R/oxford+university+logo+update.png" alt=""></a>
+                <div class="nav-links" id="navLinks">
+                    <i class="bx bx-x" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="/index.html">HOME</a></li>
+                        <li><a href="/about.html">ABOUT</a></li>
+                        <li><a href="/subject.html">SUBJECTS</a></li>
+                        <li><a href="/apply.html">APPLY</a></li>
+                        <li><a href="/contact.html">CONTACT</a></li>
+                    </ul>
+                </div>
+                <div class="menu">
+                    <i class="bx bx-menu" onclick="showMenu()" ></i>
+                </div>
+            </nav>
+            <div class="text-box">
+                <p>#Cambridge  #13-15 years old  #Maximum class size of 8  #From £5995</p>
+                <h1 class="text-box-title">Computer Science</h1> 
+                <p>Do you speak Python or perhaps Java? By the end of this course, you will. Learn what it takes to become a game-changing software developer.</p> 
+                <button><a href="/apply.html">Apply Now</a></button>
+            </div>
+        </section>
+        <section class="content">
+            <div class="row">
+                <h1>Learning</h1>
+                <div class="row__container learning">
+                    <div class="co">
+                        <h3>Outline</h3>
+                        <p>Learn about the coding and computer programming languages you need to accelerate your career as an analyst, developer or consultant with a computer science course. On this course, you’ll develop the skills to solve problems with programming, explore the general principles of software development, learn how to code and build confidence in creating interfaces.</p>   
+                    </div>
+                    <div class="co">
+                        <h3>Teaching methodology</h3>
+                        <p>Learning in a small group (no more than 8 students and often fewer) means that you get quality time with your teacher and ask as many questions as you like! Through interactive learning, our teachers will guide you through new concepts and assign you practice tasks to build your knowledge and skills. You will also have an opportunity for group work, independent research, and homework assignments to be discussed in class. Small classes mean everyone gets to have their say, and students learn from debating with one another, as well as from their tutor.</p>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- The experience  -->
+            <div class="background">
+            
+            <div class="row">
+                <h1>The experience</h1>
+                <div class="row__container">
+                    <div class="wrapper">
+                        <div class="image">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Cambridge_by_John_Cairns_2_8_18_41_1920x1282_ec8e77bd86.webp" alt="">
+                        </div>
+                        <div class="image">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Cambridge_by_John_Cairns_1_8_18_66_scaled_8a32051cfa.webp" alt="">
+                        </div>
+                        <div class="image">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Cambridge_by_John_Cairns_3_8_18_198_1929faec0c.webp" alt="">
+                        </div>
+                        <div class="image">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Cambridge_by_John_Cairns_1_8_18_39_300x200_62bd151a1e.webp" alt="">
+                        </div>
+                        <div class="image">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Cambridge_by_John_Cairns_2_8_18_161_1024x684_df75e05950.webp" alt="">
+                        </div>
+                        <div class="image">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Oxford_Summer_Courses_2019_Cambridge_26_July_2019_by_Ewa_Horaczko_Photography_0076575_c647205d97.webp" alt="">
+                        </div>
+                        
+                    </div>
+                    <div class="gallery">
+                        <div class="gallery__inner">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Cambridge_by_John_Cairns_2_8_18_41_1920x1282_ec8e77bd86.webp" alt="">
+                        </div>
+                        <div class="control prev">
+                            <i class='bx bx-left-arrow-circle '></i>
+                        </div>
+                        <div class="control next">
+                            <i class='bx bx-right-arrow-circle '></i>
+                        </div>
+                    </div>
+                    <div class="co">
+                        <p>Immerse yourself in a diverse community of international students by joining the Oxford summer school with Oxford Summer Courses. Attend practical lessons, embark on fantastic field trips, and enjoy a busy academic and social calendar. Explore local attractions such as museums on guided tours and the iconic Radcliffe Camera, unwind with tranquil afternoons punting on the River Cherwell, and engage in student traditions such as debating. Discover our available summer courses in Oxford today and get ready for an authentic Oxford experience.</p>
+                    </div>
+                </div>
+                
+            </div>
+            </div>
+            <!-- Typical outings -->
+            <div class="row row__next">
+                <h1>Typical outings</h1>
+                <div class="control">
+                    <div class="control prev__out">
+                        <i class='bx bx-left-arrow-circle '></i>
+                    </div>
+                    <div class="control next__out">
+                        <i class='bx bx-right-arrow-circle '></i>
+                    </div>
+                </div>
+                <div class="gallery__out">
+                    <div class="slide">
+                        <div class="slide__item">
+                            <div class="slide__des">
+                                <h3 class="slide__desh">British Museum</h3>
+                                <p class="slide__desp">The British Museum, located in the heart of London, is one of the world's most renowned museums, housing a vast and diverse collection of over 8 million historical artefacts from all corners of the globe. Founded in 1753, the museum covers over 2 million years of human history, from ancient civilisations to modern times.</p>
+                            </div>
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_London_by_John_Cairns_10_7_18_163_a47c59fdef.webp" alt="">
+                        </div>
+                        <!-- slide item -->
+                        <div class="slide__item">
+                            <div class="slide__des">
+                                <h3 class="slide__desh"> Warwick Castle</h3>
+                                <p class="slide__desp"> Visiting Warwick Castle is an opportunity to explore the rich history of this magnificent medieval fortress. It dates back to the 11th century and has played a significant role in English history. Students can explore the castle's impressive collection of buildings and exhibitions, as well as witness jousting tournaments, falconry displays, and other live shows.</p>
+                            </div>
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Warwick_Castle_fe71d697a7.webp" alt="">
+                        </div>
+                        <!-- slide item -->
+                        <div class="slide__item">
+                            <div class="slide__des">
+                                <h3 class="slide__desh">Tower of London</h3>
+                                <p class="slide__desp">The Tower of London is a historic castle and fortress that has served as a royal palace, prison, and even a zoo over the centuries. Visitors can explore its impressive collection of buildings and exhibitions, including the iconic White Tower, the Crown Jewels, and the medieval palace. They can also learn about the infamous prisoners who were held in the tower over the centuries, including Anne Boleyn and Guy Fawkes.</p>
+                            </div>
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/joseph_gilbey_T_Zh6_Fe_Cra_E0_unsplash_1_39fb6a9a9f.webp" alt="">
+                        </div>
+                        <!-- slide item -->
+                        <div class="slide__item">
+                            <div class="slide__des">
+                                <h3 class="slide__desh">Westminster, London</h3>
+                                <p class="slide__desp">Visiting Westminster in London is a must-see for anyone interested in the city's rich history and iconic landmarks. This historic district is located in the heart of London and boasts several of the city's most famous attractions, including the Houses of Parliament, Westminster Abbey, and Buckingham Palace.</p>
+                            </div>
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/London_1_e1561969051569_80f78d281b.webp" alt="">
+                        </div>
+                        <!-- slide item -->
+                        <div class="slide__item">
+                            <div class="slide__des">
+                                <h3 class="slide__desh">Greenwich                                </h3>
+                                <p class="slide__desp">Greenwich is a must-visit destination for anyone interested in history, science, or exploration. The Royal Observatory offers a fascinating glimpse into the history of space, time, and navigation, while the Cutty Sark provides a unique opportunity to step aboard a historic tea clipper from the 19th century. At the National Maritime Museum, visitors can uncover stories about how the modern world was shaped by centuries of seafaring exploration.</p>
+                            </div>
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Greenwich_s_63e2a88dda.webp" alt="">
+                        </div>
+                        <!-- slide item -->
+                        <div class="slide__item">
+                            <div class="slide__des">
+                                <h3 class="slide__desh">Canterbury</h3>
+                                <p class="slide__desp">Visiting Canterbury is a journey back in time to the heart of medieval England. The charming city boasts a rich history and stunning architecture, including the iconic Canterbury Cathedral, which has been a place of worship for over 1,400 years. Visitors can also immerse themselves in the world of Chaucer's Canterbury Tales, and even try on clothing from the era for a truly authentic experience.                                </p>
+                            </div>
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/canterbury_cathedral_3530366_1920_7be00afc5d.webp" alt="">
+                        </div>
+                        <!-- slide item -->
+                        <div class="slide__item">
+                            <div class="slide__des">
+                                <h3 class="slide__desh">Portsmouth</h3>
+                                <p class="slide__desp">Visiting Portsmouth offers an opportunity to explore the rich maritime history of the UK. The city has played a significant role in the country's naval history, and students can learn about this at the historic dockyard, which is home to several iconic ships. They can also explore the Mary Rose Museum, which houses the remains of Henry VIII's flagship, and the National Museum of the Royal Navy.                                </p>
+                            </div>
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/portsmouth_713817_1920_4a76312fb1.webp" alt="">
+                        </div>
+                        <!-- slide item -->
+                        
+                        
+                    </div>
+                    <div class="gallery__item">
+                        <div class="des">
+                            <h3 class="desh">British Museum</h3>
+                            <p class="desp">The British Museum, located in the heart of London, is one of the world's most renowned museums, housing a vast and diverse collection of over 8 million historical artefacts from all corners of the globe. Founded in 1753, the museum covers over 2 million years of human history, from ancient civilisations to modern times.</p>
+                        </div>
+                        <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_London_by_John_Cairns_10_7_18_163_a47c59fdef.webp" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- Review -->
+            <div class="background">
+            <div class="row">
+                <h1>Review</h1>
+                <div class="row__container">
+                    <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Loobdhak_2_6654bd1c8b.webp" alt="">
+                    <div class="text">
+                        <h3>Loobdhak, Bahrain</h3>
+                        <p>
+                            "After finishing the course, I feel as if I have not only learnt more on this topic but also understood how important it is in our everyday life. We explored different parts of computer science such as Hardware, Software engineering, Artificial Intelligence, Game designing etc."</p>
+                    </div>
+                </div> 
+                <p>See our 155 reviews on
+                <a href="https://www.trustpilot.com/review/oxfordsummercourses.com?utm_medium=trustbox&utm_source=MicroReviewCount">Trustpilot</a>
+                </p>
+            </div>
+            </div>
+            <!-- Stay -->
+            <div class="row row--bg">
+                <h1>Stay in Cambridge</h1>
+                <div class="row__container">
+                    <div class="co">
+                        <p>Staying in Cambridge as an Oxford Summer Courses student is an unforgettable experience. This renowned academic city is steeped in history and culture, with stunning architecture and landmarks at every turn. But it's not just about academics - Cambridge is also a vibrant and welcoming community, with a lively student culture and a bustling arts and entertainment scene. Whether you're exploring the city's rich heritage, discovering new cuisines and experiences, or enjoying the company of students from around the world, Cambridge is sure to captivate and inspire you. From the iconic spires of the University of Cambridge to the charmingly narrow streets of Mill Road, Cambridge has something for everyone. As a student of the Cambridge Summer School at Oxford Summer Courses, you'll have the opportunity to immerse yourself in the diverse and exciting culture of one of the world's most historic and intellectually stimulating cities.</p>
+                        <div class="stay__inf">
+                            <div class="acco">
+                                <h3>Accommodation</h3>
+                                <p>When you apply to study at our Cambridge Summer School with Oxford Summer Courses, you can choose to stay in either a standard room (with a shared bathroom) or an en-suite room (with a private bathroom), subject to availability. Our team will allocate you to a specific Cambridge college for your stay, where our Cambridge Summer Courses are hosted. All of our accommodation is conveniently located within easy reach of Cambridge's historic landmarks, tourist attractions, and shopping facilities</p>
+                            </div>
+                            <div class="food">
+                                <h3>Food and catering</h3>
+                                <p>When you stay with Oxford Summer Courses, you will dine at your allocated Cambridge College. Additionally, you will have the opportunity to eat at local Cambridge restaurants. On Fridays, dress up and enjoy a three-course formal dinner at your Cambridge college with fellow students to celebrate your achievements. This unforgettable experience will undoubtedly be a memorable highlight of your time at Oxford Summer Courses.</p>    
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="wrapper__stay">
+                        <div class="image__stay">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Stay_Cambridge_16_9_17_150x150_1e1b003a8d.webp" alt="">
+                        </div>
+                        <div class="image__stay">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Stay_Cambridge_16_9_04_300x169_8ff0360e51.webp" alt="">
+                        </div>
+                        <div class="image__stay">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Stay_Cambridge_16_9_01_300x169_2de1f2a72a.webp" alt="">
+                        </div>
+                        <div class="image__stay">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Stay_Cambridge_16_9_11_300x169_5c848c9626.webp" alt="">
+                        </div>
+                        <div class="image__stay">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Stay_Cambridge_16_9_08_300x169_227e2165d8.webp" alt="">
+                        </div>
+                        <div class="image__stay">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Stay_Cambridge_16_9_16_768x432_065713780d.webp" alt="">
+                        </div>
+                        <div class="image__stay">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Stay_Cambridge_16_9_06_640e60b9a6.webp" alt="">
+                        </div>
+                    </div>
+                    <div class="gallery__stay">
+                        <div class="gallery__inner__stay">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Stay_Cambridge_16_9_17_150x150_1e1b003a8d.webp" alt="">
+                        </div>
+                        <div class="control prev__stay">
+                            <i class='bx bx-left-arrow-circle '></i>
+                        </div>
+                        <div class="control next__stay">
+                            <i class='bx bx-right-arrow-circle '></i>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            <!-- Tutor -->
+            <div class="row row__next">
+                <h1>Tutors</h1>
+                <div class="control">
+                    <div class="control prev__tutor">
+                        <i class='bx bx-left-arrow-circle '></i>
+                    </div>
+                    <div class="control next__tutor">
+                        <i class='bx bx-right-arrow-circle '></i>
+                    </div>
+                </div>
+                <div class="gallery__tutors">
+                    
+                    <div class="slide__tutors">
+                        <div class="tutor">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Eiman_Elbanhawy_6973c5cc53.webp" alt="">
+                            <h3 class="sname">Dr Eiman E</h3>
+                            <p class="sinf">PhD, Northumbria University - Eiman is an academic who brings 16 years of experience shared between academia and practice in interdisciplinary fields of architecture, built environment, and smart city technologies. She specialises in Architecture, Design, Spatial Experience, Space Syntax, Architectural Engineering, Urban Studies, Building Tectonics, Theories, Sustainability and Resilience. Recently, she's been working on an e-mobility research project and MK: Smart, a collaborative initiative with the Open University to support sustainable growth in Milton Keynes.</p>
+                        </div>
+                        <div class="tutor">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Thomas_Deckker_e8923b366e.webp" alt="">
+                            <h3 class="sname">Thomas D</h3>
+                            <p class="sinf">Thomas fell in love with architecture being inspired by the beautiful buildings in Cambridge where he grew up. He specialises in architectural practice, history of urban design and renaissance architecture. His portfolio includes social housing projects in London, a school and an art gallery. As part of his architectural practice, Thomas is currently involved in designing social housing as part of the regeneration of Tottenham, a suburb of London with previously poor living conditions.eclectic city.</p>
+                        </div>
+                    </div>
+                    <div class="gallery__tutor">
+                        <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Osman_Engin_Zat_21d4bceff6.webp" alt="">
+                        <div class="tutor__des">
+                            <h3 class="name">Osman E</h3>
+                            <p class="inf">
+                              
+                                After graduating from Marmara University's Electronics and Computer Education Department, Engin opened my franchise branch of IT education centre in Eskisehir, Turkey and worked as a teacher and manager for five years. Following his masters, he worked for a municipalities transportation planning department on traffic data and smart city projects for another five years. In January 2019, Engin opened an IT consultancy company in the UK and began sharing his experiences here. He is passionate about technology and innovative ideas, also teaching younger children robotics with Lego Mindstorms and Arduino systems. He loves to discover the world with his 7-year-old son.</p>
+                   
+                        </div>
+                     </div>
+                </div>
+            </div>
+            <!-- Date & Prices -->
+            <div class="background">
+            <div class="classes">
+                <h1>Dates & Prices</h1>
+                <div class="class">
+                    <div class="class__date">2 Jul 2023 - 15 Jul 2023</div>
+                    <div class="class__condition">Standard (shared bathroom)</div>
+                    <div class="class__status">
+                        <p>Full</p>
+                        <i class='bx bx-calendar-x'></i>
+                    </div>
+                    <div class="price__standard"></div>
+                    <button> <a href="/apply.html">Apply</a></button>
+                  
+                </div>
+                <div class="class">
+                    <div class="class__date">2 Jul 2023 - 15 Jul 2023</div>
+                    <div class="class__condition">En-suite (private room and bathroom)</div>
+                    <div class="class__status">
+                        <p>Full</p>
+                        <i class='bx bx-calendar-x'></i>
+                    </div>
+                    <div class="price__en"></div>
+                    <button> <a href="/apply.html">Apply</a></button>
+                </div>
+                <div class="class">
+                    <div class="class__date">17 Jul 2023 - 29 Jul 2023</div>
+                    <div class="class__condition">Standard (shared bathroom)</div>
+                    <div class="class__status">
+                        <p>Full</p>
+                        <i class='bx bx-calendar-x'></i>
+                    </div>
+                    <div class="price__standard"></div>
+                        <button> <a href="/apply.html">Apply</a></button>
+                </div>
+                <div class="class">
+                    <div class="class__date">17 Jul 2023 - 29 Jul 2023</div>
+                    <div class="class__condition">En-suite (private room and bathroom)</div>
+                    <div class="class__status">
+                        <p>Full</p>
+                        <i class='bx bx-calendar-x'></i>
+                    </div>
+                    <div class="price__en"></div>
+                        <button> <a href="/apply.html">Apply</a></button>
+                </div>
+               
+            </div>
+            </div>
+        </section>
+    
+        <!-- Footer -->
+        <section class="footer">
+            <h4>About Us</h4>
+            <div class="icon">
+                <i class='bx bxl-facebook' ></i>
+                <i class='bx bxl-twitter' ></i>
+                <i class='bx bxl-instagram-alt' ></i>
+                <i class='bx bxl-youtube' ></i>
+                <i class='bx bxl-linkedin' ></i>
+            </div>
+            <button><a href="apply.html">Apply Now</a></button>
+           <p>Oxford Summer Courses is an organisation which contracts with the colleges of the Universities of Oxford, Cambridge and London for the use of facilities, but which has no formal connection with the Universities of Oxford, Cambridge and London.</p>
+        </section>
+
+
+        
+        
+    </body>
+    <!-- JavaScript for menu -->
+
+    <script>
+        var navLinks=document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right="0";
+        }
+        function hideMenu(){
+            navLinks.style.right="-200px";
+        }
+    </script>
+    <!-- JS for The experience -->
+    <script>
+        var images = document.querySelectorAll('.image img')
+        var prev = document.querySelector('.prev')
+        var next = document.querySelector('.next')
+        var galleryImg = document.querySelector('.gallery__inner img')
+
+        var currentIndex = 0;
+
+        function ShowGallery(){
+            galleryImg.src = images[currentIndex].src
+        }
+
+        prev.addEventListener('click',function(){
+            if(currentIndex > 0){
+                currentIndex--;
+                ShowGallery();
+            }
+        });
+        next.addEventListener('click',function(){
+            if(currentIndex < images.length -1){
+                currentIndex++
+                ShowGallery();
+            }
+        });
+    </script>
+    <!-- JS for Outing -->
+    <script>
+        var slideItems = document.querySelectorAll('.slide__item');
+        var prevButton = document.querySelector('.prev__out');
+        var nextButton = document.querySelector('.next__out');
+        var galleryItem = document.querySelector('.gallery__item');
+        
+        var galleryItemImg = document.querySelector('.gallery__item img');
+        var desh = document.querySelector('.desh');
+        var desp = document.querySelector('.desp');
+        var currentIndexO = 0;
+
+        function showGalleryItem(index) {
+            var currentItem = slideItems[index];
+            
+            var image = currentItem.querySelector('img');
+            var descriptionh = currentItem.querySelector('.slide__desh');
+            var descriptionp = currentItem.querySelector('.slide__desp');
+            galleryItemImg.src = image.src;
+            desh.textContent = descriptionh.textContent;
+            desp.textContent = descriptionp.textContent;
+        }
+
+        function showPrev() {
+            if (currentIndexO > 0) {
+                currentIndexO--;
+                showGalleryItem(currentIndexO);
+            }
+        }
+
+        function showNext() {
+            if (currentIndexO < slideItems.length - 1) {
+                currentIndexO++;
+                showGalleryItem(currentIndexO);
+            }
+        }
+
+        // Gán sự kiện click cho nút prev và next
+        prevButton.addEventListener('click', showPrev);
+        nextButton.addEventListener('click', showNext);
+
+        // Hiển thị phần tử đầu tiên khi trang được tải
+        showGalleryItem(currentIndexO);
+
+    </script>
+    <!-- JS for Stay  -->
+    <script>
+        var imagesS = document.querySelectorAll('.image__stay img')
+        var prevS = document.querySelector('.prev__stay')
+        var nextS = document.querySelector('.next__stay')
+        var galleryImgS = document.querySelector('.gallery__inner__stay img')
+
+        var currentIndexS = 0;
+
+        function ShowGalleryS(){
+            galleryImgS.src = imagesS[currentIndexS].src
+        }
+
+        prevS.addEventListener('click',function(){
+            if(currentIndexS > 0){
+                currentIndexS--;
+                ShowGalleryS();
+            }
+        });
+        nextS.addEventListener('click',function(){
+            if(currentIndexS < imagesS.length -1){
+                currentIndexS++
+                ShowGalleryS();
+            }
+        });
+    </script>
+    <!-- JS for Tutors -->
+    <script>
+        var slideTutors = document.querySelectorAll('.tutor');
+        var prevT = document.querySelector('.prev__tutor');
+        var nextT = document.querySelector('.next__tutor');
+        var galleryTutor = document.querySelector('.gallery__tutor');
+        
+        var galleryTutorImg = document.querySelector('.gallery__tutor img');
+        var name = document.querySelector('.name');
+        var inf = document.querySelector('.inf');
+        var currentIndexT = 0;
+
+        function showGalleryTutor(index) {
+            var currentTutor = slideTutors[index];
+            
+            var imageT = currentTutor.querySelector('img');
+            var sname = currentTutor.querySelector('.sname');
+            var sinf = currentTutor.querySelector('.sinf');
+            galleryTutorImg.src = imageT.src;
+            name.textContent = sname.textContent;
+            inf.textContent = sinf.textContent;
+        }
+
+        function Prev() {
+            if (currentIndexT > 0) {
+                currentIndexT--;
+                showGalleryTutor(currentIndexT);
+            }
+        }
+
+        function Next() {
+            if (currentIndexT < slideTutors.length - 1) {
+                currentIndexT++;
+                showGalleryTutor(currentIndexT);
+            }
+        }
+
+        // Gán sự kiện click cho nút prev và next
+        prevT.addEventListener('click', Prev);
+        nextT.addEventListener('click', Next);
+
+        // Hiển thị phần tử đầu tiên khi trang được tải
+        showGalleryTutor(currentIndexT);
+
+    </script>
+    <!-- fee -->
+    <script>
+        var fee1 = "£5995";
+        var e1 = document.getElementsByClassName("price__standard");
+        for( var i = 0 ;i< e1.length; i++){
+            e1[i].innerHTML =  fee1;
+        }
+        var fee2 = "£6995";
+        var e2 = document.getElementsByClassName("price__en");
+        for( var i = 0 ;i< e2.length; i++){
+            e2[i].innerHTML =  fee2;
+        }
+    </script>
+</html>
