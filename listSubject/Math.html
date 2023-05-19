@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="with=device-device-width, initial-scale=1.0">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: 'EB Garamond', serif;
+                box-sizing: border-box;
+            }
+            :root{
+                --g_color: rgb(79, 124, 5);
+                --f_color:rgba(28, 54, 2, 0.4);
+                --button-color:rgba(5, 225, 5, 0.7);
+                --c-color:rgba(28, 54, 2,1);
+            }
+            /* avt */
+            .header{
+                min-height: 60vh;
+                width: 100%;
+                background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Oxford_by_John_Cairns_6_8_18_208_cbb026d6a6.webp);
+                background-position:center ;
+                background-size: cover;
+                position: relative;
+            }    
+            nav{
+                display: flex;
+                justify-content: space-between;   
+                align-items: center ;
+            }
+            nav a img{
+                width: 30%;
+            }  
+            .nav-links{
+                list-style: none;
+                justify-content: end;
+                
+            }
+            .nav-links ul li{
+                list-style: none;
+                display: inline-block;
+                padding: 8px 12px;
+                position: relative;
+            }
+            .nav-links ul li a{
+                
+                color:#fff;
+                text-decoration: none;
+                font-size: 26px;
+                transition: 0.5s;
+            }
+            .nav-links ul li a:hover{
+                color:rgb(173, 249, 50);
+            }
+
+            .text-box{
+                width: 90%;
+                position: absolute;
+                text-align: center;
+                top: 45%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                
+            }
+            .text-box-title{
+                font-size: 62px;
+                color:#fff
+            }
+            #video-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+            }
+            .button{
+                margin-top: 50px;
+                font-size: 26px;
+                padding: 10px 30px;
+                border-radius: 50px;
+                background-color: rgba(255,255,255,0.2);
+                color: #fff;
+                border-color:#fff;
+                cursor: pointer;
+            }
+            #close-button {
+                position: absolute;
+                top: 50px;
+                right: 50px;
+                color: white;
+                font-size: 24px;
+                cursor: pointer;
+                font-size: 53px;
+            }
+            .button:hover{
+                background-color: rgba(255,255,255,0.1);
+            }
+            #my-video{
+                max-width: 80%;
+                max-height: 80%;
+            }
+            .nav-links i{
+                display: none;
+            }
+            .menu i{
+                display:none;
+            }
+            .video iframe{
+                width:1680px; 
+                height:945px;
+            }
+
+            @media(max-width:700px){
+                nav a img{
+                    align-items: start;
+                    width:200px;
+                    /* flex-direction: ; */
+                }
+                .text-box-title{
+                    font-size: 26px;
+                    color:#fff ;
+                }
+                .nav-links ul li{
+                    display: block;
+                }
+                .nav-links{
+                    position: absolute;
+                    background-color: rgba(59, 113, 5, 0.8);
+                    width: 50%;
+                    height:60vh;
+                    top:0;
+                    border-radius: 10px;
+                    right:-200px;
+                    z-index:2;/*chi so uu tien(đè)*/
+                    transition: 0.5s;
+                }
+                .nav-links ul li a{   
+                    margin-left:10px ;
+                    font-size: 17px;
+                }
+                .nav-links i{
+                    display: block;
+                    color: #fff;
+                    font-size: 30px;
+                    margin-bottom: 10px;
+                    cursor: pointer;
+                }
+                .menu i{
+                    display:block;
+                    margin-left: 10px;
+                    color: #fff;
+                    font-size: 35px;
+                    cursor: pointer;
+                }
+                .button{
+                    margin-top: 20px;
+                    font-size: 12px;
+                    padding: 10px 30px;
+                }
+                .video iframe{
+                   transform:translateX(-100px) translateY(-300px);
+                    width:100vw; 
+                    height:300px;
+                }
+                #close-button {
+                    top: 50px;
+                    right: 230px;
+                    color: white;
+                    font-size: 35px;
+                }
+                }  
+          
+            /* des */
+            .bg_des{
+                padding-top:50px ;
+                background-color: rgba(0,0,0,0.08);
+            }
+            .body__des{
+                
+                /* background-color:rgba(0,0,0,0.09); */
+                max-width: 1200px;
+                margin: auto;
+            }
+            .body__des h1{
+                font-size: 44px;
+                color:var(--g_color);
+                text-align: center;
+                margin: 26px 0 ;
+            }
+            .body__des h2{
+                font-size: 28px;
+                color:var(--g_color);
+                text-align: center;
+                margin: 26px 0 ;
+            }
+            .body__des p{
+                font-size: 26px;
+                color: var(--g_color);
+            }
+            @media(max-width:700px){
+                .body__des{
+                    width:100vw;
+                }
+                .body__des h1{
+                    font-size: 17px;
+                    margin:10px 0;
+                }
+                .body__des h2{
+                    font-size: 17px;
+                    color:var(--f_color);
+                    text-align:left;
+                    margin: 10px 0 ;
+                }
+                .body__des p{
+                    margin-left: 0px;
+                    font-size: 12px;
+                    color: var(--g_color);
+                }
+            }
+            /* class */
+            .choose_class{
+                padding-top: 20px ;
+                max-width:1200px ;
+                margin: auto;
+            }
+            .choose_class h2{
+                margin-bottom: 50px;
+                font-size: 44px;
+                color: var(--g_color);
+            }
+            .class{
+                display: flex;
+                justify-content:start;
+                overflow-x: auto;
+                /* flex-wrap: wrap; */
+            }
+
+           .card + .card{
+             margin-left: 50px;
+           }
+            .card{
+                flex:0 0 auto;
+                width: 394px;
+                height: 512px;
+                border: 2px solid var(--f_color);
+                background-color: var(--f_color);
+            }
+            .card img{
+                width: 100%;
+                height: 50%;
+                object-fit: cover;
+            }
+            .card__age{
+                padding-left: 20px;
+                font-size: 15px;
+                margin-top: 17px;
+                margin-bottom: 12px;
+                color:#fff;
+            }
+            .card h3{
+                font-size: 23px;
+                padding-left:20px ;
+                margin-bottom: 12px;
+                color:#fff;
+            }
+            .card__price{
+                font-size: 17px;
+                padding-left:20px ;
+                margin-bottom: 12px;
+                color: var(--c-color);
+            }
+            .card__hashtag{
+                display: flex;
+                justify-content: start;
+                margin-top:100px ;
+                justify-items: end;
+            }
+            .card__hashtag p{
+                margin-left: 10px;
+                color:#fff;
+            }
+            @media(max-width:700px){
+                .choose_class{
+                    padding-top: 20px ;
+                    max-width:1200px ;
+                    margin: auto;
+                }
+                .choose_class h2{
+                    margin-bottom: 35px;
+                    font-size: 17px;
+                }
+                .class{
+                    display: flex;
+                    justify-content:start;
+                    overflow-x: auto;
+                }
+
+                .card + .card{
+                    margin-left: 23px;
+                }
+                .card{
+                    flex:0 0 auto;
+                    width: 260px;
+                    height: 350px;
+                    border: 2px solid var(--f_color);
+                    background-color: var(--f_color);
+                }
+                .card img{
+                    width: 100%;
+                    height: 50%;
+                    object-fit: cover;
+                }
+                .card__age{
+                    padding-left: 5px;
+                    font-size: 8px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    color:#fff;
+                }
+                .card h3{
+                    font-size: 17px;
+                    padding-left:5px ;
+                    margin-bottom: 8px;
+                    color:#fff;
+                }
+                .card__price{
+                    font-size: 12px;
+                    padding-left:5px ;
+                    margin-bottom: 12px;
+                    color: var(--c-color);
+                }
+                .card__hashtag{
+                    display: flex;
+                    justify-content: start;
+                    margin-top:62px ;
+                    justify-items: end;
+                }
+                .card__hashtag p{
+                    margin-left: 10px;
+                    color:#fff;
+                    font-size: 8px;
+                }
+            }
+             /* last */
+            .bg{
+                width: 100vw;
+                background: url(https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/static/lightRightLogoGradient_cuprbh.webp);
+                background-repeat: no-repeat;
+                background-size: cover;
+
+            }
+            .last{
+                max-width: 1200px;
+                margin:auto;
+               
+            }
+            .last h1{
+                font-size: 44px;
+                color:var(--g_color);
+                text-align: center;
+                margin: 26px 0 ;
+            }
+            .last__column{
+                display: flex;
+                width: 90%;
+
+            }
+            .last__column img{
+                height: 35vh;
+            }
+            .last__des p{
+                margin-left: 35px;
+                font-size: 26px;
+                color: var(--g_color);
+            }
+            .box{
+                width: 620px;
+                height: 152px;
+                background-color: var(--f_color);
+                margin: auto;
+            }
+            .box h3{
+                margin-top: 17px;
+                text-align: center;
+                color:#fff;
+                padding-top:40px ;
+                font-size: 35px;
+            }
+            @media(max-width:700px){
+                .last{
+                    margin:0px;
+                }
+                .last h1{
+                    font-size: 17px;
+                }
+                .last__column img{
+                    width: 100vw;
+                    
+                }
+                .last__column{
+                    width: 100%;
+                    flex-direction: column;
+                }
+                .last__des p{
+                    margin-left: 0px;
+                    font-size: 12px;
+                }
+                .box{
+                    width: 50vw;
+                    height: 10vh;
+                    background-color: var(--f_color);
+                    margin: auto;
+                }
+                .box h3{
+                    margin-top: 10px;
+                    text-align: center;
+                    color:#fff;
+                    padding-top:17px ;
+                    font-size: 17px;
+                }
+            }
+           
+            /* Footer */
+            .footer{
+                margin-top: 26px;
+                display: flex;
+                align-items:center ;
+                justify-content: center;
+                flex-direction: column;
+                background-color: var(--f_color);
+                height: 17vh;
+            }
+            .footer h4{
+                font-size: 26px;
+                color:#fff;
+            }
+            .footer p{ 
+                margin-top: 17px;
+                color:#fff;
+                font-size: 17px;
+            }
+            .icon{
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .icon .bx{
+                margin-left: 5px;
+                margin-right: 5px;
+                cursor: pointer;
+                color:var(--f_color);
+            }
+            .footer button{
+                width: 180px;
+                background-color:var(--button-color);
+                border-radius: 10px;
+            }
+            .footer button a{
+                color: #fff;
+                border-color: #fff;
+                font-size: 23px;
+                text-decoration: none;
+            }
+            @media(max-width:700px){
+                .footer h4{
+                    font-size: 17px;
+                }
+                .icon{
+                    text-align: center;
+                    margin-bottom: 0px;
+                }
+                .footer button a{
+                    font-size: 17px;
+                }
+                .footer p{ 
+                    margin-top: 5px;
+                    font-size: 12px;
+                }
+            }
+            a{
+                text-decoration: none;
+                margin-right: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="header">
+            <nav>
+                <a href="index.html"><img src="https://images.squarespace-cdn.com/content/v1/57d155c39de4bbd9d3069285/1593776522976-H6ROQ0OOZRV1RWSYYV8R/oxford+university+logo+update.png" alt=""></a>
+                <div class="nav-links" id="navLinks">
+                    <i class="bx bx-x" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="../index.html">HOME</a></li>
+                        <li><a href="../about.html">ABOUT</a></li>
+                        <li><a href="../subject.html">SUBJECTS</a></li>
+                        <li><a href="../blog.html">BLOG</a></li>
+                        <li><a href="../apply.html">APPLY</a></li>
+                        <li><a href="../contact.html">CONTACT</a></li>
+                    </ul>
+                </div>
+                <div class="menu">
+                    <i class="bx bx-menu" onclick="showMenu()" ></i>
+                </div>
+            </nav>
+            <div class="text-box">
+                <h1 class="text-box-title">Mathematics</h1>  
+                <button class="button" id="play-video">WATCH VIDEO</button>
+            </div>
+            
+        </section>
+        <!-- video fixed -->
+        <div id="video-container">
+            <div class="video" id="my-video">
+                <iframe src="https://www.youtube.com/embed/oAGxvdoKSYs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <i id="close-button" class='bx bx-x-circle'></i>
+        </div>
+        <!-- body -->
+        <section class="body">
+            <div class="body__des">
+                <h1>The equation of success starts with Mathematics study at Oxford Summer Courses</h1>
+                <p>Your future in accounting, banking or education begins here. With a solid Mathematics qualification from Oxford Summer Courses. You’ll learn from world-class tutors in small groups and individually for focused, intense study.
+
+                   <br> Our topics from years past include – how to analyse complex numerical data, the ability to approach problems rigorously and how to formulate and apply theories to solve a range of problems. Tutorials focus on solutions to problem sheets rather than discussion-based tutorials so you have direct access to the answers and can apply your knowledge with confidence on the next project.
+                    
+                   <br> You’ll also develop a range of desirable interpersonal skills such as project management, problem-solving, team-working and communication skills, which are enviable in all industries and career paths.  </p>    
+            </div>
+            <div class="choose_class">
+                <h2>Choose your Mathematics summer school
+                </h2>
+                <div class="class">
+                    <a href="/listClasses/Math/13-15Cam.html">
+                        <div class="card">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Cambridge_by_John_Cairns_2_8_18_41_3d0c71488f.webp" alt="">
+                            <div class="card__age">13-15 YEAR| CAMBRIDGE</div>
+                            <h3>Mathematics</h1>
+                            <div class="card__price card__price__13-15"></div>
+                            <div class="card__hashtag">
+                                <p>#Summer</p>
+                                <p>#Maximum class size of 8</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/listClasses/Math/16-17Cam.html">
+                        <div class="card">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Cambridge_by_John_Cairns_2_8_18_49_9ffaf0e915.webp" alt="">
+                            <div class="card__age">16-17 YEAR| CAMBRIDGE</div>
+                            <h3>Mathematics</h1>
+                            <div class="card__price card__price__16-17"></div>
+                            <div class="card__hashtag">
+                                <p>#Summer</p>
+                                <p>#Tutorials</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/listClasses/Math/18-24Cam.html">
+                        <div class="card">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Oxford_by_John_Cairns_6_8_18_55_1_12aa598689.webp" alt="">
+                            <div class="card__age">18-24 YEAR| CAMBRIDGE</div>
+                            <h3>Mathematics</h1>
+                            <div class="card__price card__price__18-24"></div>
+                            <div class="card__hashtag">
+                                <p>#Summer</p>
+                                <p>#Tutorials</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/listClasses/Math/13-15Oxf.html">
+                        <div class="card">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Cambridge_by_John_Cairns_2_8_18_13_bf6fdde50c.webp" alt="">
+                            <div class="card__age">13-15 YEAR| OXFORD</div>
+                            <h3>Mathematics</h1>
+                            <div class="card__price card__price__13-15"></div>
+                            <div class="card__hashtag">
+                                <p>#Summer</p>
+                                <p>#Maximum class size of 8</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/listClasses/Math/16-17Oxf.html">
+                        <div class="card">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Oxford_by_John_Cairns_16_7_19_53_wecompress_com_5f548ccbe5.webp" alt="">
+                            <div class="card__age">16-17 YEAR| OXFORD</div>
+                            <h3>Mathematics</h1>
+                            <div class="card__price card__price__16-17"></div>
+                            <div class="card__hashtag">
+                                <p>#Summer</p>
+                                <p>#Tutorials</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/listClasses/Math/18-24Oxf.html">
+                        <div class="card">
+                            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Oxford_by_John_Cairns_6_8_18_256_5d416de916.webp" alt="">
+                            <div class="card__age">18-24 YEAR| OXFORD</div>
+                            <h3>Mathematics</h1>
+                            <div class="card__price card__price__18-24"></div>
+                            <div class="card__hashtag">
+                                <p>#Summer</p>
+                                <p>#Tutorials</p>
+                            </div>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+            <div class="bg_des">
+                <div class="body__des">
+                    <h1>Mathematics Summer School</h1>
+                    <h2>From calculus to algebra, our Mathematics course will equip you with the skills you need to further your career</h2>
+                    <p>Whether you’re aiming for a role in IT or want to break into the finance industry, a course in Mathematics with Oxford Summer Courses is a smart place to start.
+
+
+                       <br> Equally challenging and rewarding, study Mathematics with us here and you’ll be learning one of the longest established disciplines, in one of the most historic, atmospheric cities. Through mathematics, we’ve revealed new fascinating truths and ideas, helping to shape our knowledge in every direction. And you can too.</p>    
+                </div>
+            </div>
+            
+            <div class="bg">
+                <div class="last">
+                    <h1>Gain the skills and experience you need to excel with a unique, unparalleled learning experience.</h1>
+                    <div class="last__column">
+                        <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Cambridge_by_John_Cairns_2_8_18_73_wecompress_com_e72bf7cedb.webp" alt="">
+                        <div class="last__des">
+                            <p>Each week, you’ll be able to collaborate with leading academics mirroring the teaching method of the most respected educational establishments in the UK.
+                               <br> As current and past alumni of top universities in the world they’re highly specialised and passionate about their subject you’ll develop your academic career through interactive learning, independent study, seminars, and tutorials, depending on your age group.</p>
+                           <div class="box">
+                                <h3>Our established tutors are experts in their fields of study.</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        <!-- Footer -->
+        <section class="footer">
+            <h4>About Us</h4>
+            <div class="icon">
+                <i class='bx bxl-facebook' ></i>
+                <i class='bx bxl-twitter' ></i>
+                <i class='bx bxl-instagram-alt' ></i>
+                <i class='bx bxl-youtube' ></i>
+                <i class='bx bxl-linkedin' ></i>
+            </div>
+            <button><a href="apply.html">Apply Now</a></button>
+           <p>Oxford Summer Courses is an organisation which contracts with the colleges of the Universities of Oxford, Cambridge and London for the use of facilities, but which has no formal connection with the Universities of Oxford, Cambridge and London.</p>
+        </section>
+
+
+        
+        <!-- JavaScript for menu -->
+
+        <script>
+            var navLinks=document.getElementById("navLinks");
+            function showMenu(){
+                navLinks.style.right="0";
+            }
+            function hideMenu(){
+                navLinks.style.right="-200px";
+            }
+        </script>
+        <!-- JavaScript for video -->
+        <script>
+            // Thêm sự kiện click cho nút play
+            var playButton = document.getElementById("play-video");
+            var videoContainer = document.getElementById("video-container");
+            var video = document.getElementById("my-video");
+            var closeButton = document.getElementById("close-button");
+    
+            playButton.addEventListener("click", function() {
+                videoContainer.style.display = "flex";
+                videoContainer.style.alignItems = "center";
+                videoContainer.style.justifyContent = "center";
+            });
+    
+            closeButton.addEventListener("click", function() {
+                videoContainer.style.display = "none";
+            });
+        </script>
+       <!-- fee -->
+       <script>
+        var fee1 = "£5995";
+        var e1 = document.getElementsByClassName("card__price__13-15");
+        for( var i = 0 ;i< e1.length; i++){
+            e1[i].innerHTML = "From "+ fee1;
+        }
+        var fee2 = "£5895";
+        var e2 = document.getElementsByClassName("card__price__16-17");
+        for( var i = 0 ;i< e2.length; i++){
+            e2[i].innerHTML = "From "+ fee2;
+        }
+        var fee3 = "£6895";
+        var e3 = document.getElementsByClassName("card__price__18-24");
+        for( var i = 0 ;i< e3.length; i++){
+            e3[i].innerHTML = "From "+ fee3;
+        }
+    </script>
+    </body>
+</html>

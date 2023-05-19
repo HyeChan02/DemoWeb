@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="with=device-device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: 'EB Garamond', serif;
+                box-sizing: border-box;
+            }
+            :root{
+                --g_color: rgb(79, 124, 5);
+                --f_color:rgba(28, 54, 2, 0.4);
+                --button-color:rgba(5, 183, 5, 0.6);
+                --c-color:rgba(28, 54, 2,1);
+            }
+            /* header */
+            .header{
+                margin:auto;
+                background-color: var(--f_color);
+                display: flex;
+                flex-direction: row;
+                justify-content:center;
+            }
+            .header__logo{
+                max-width: 30%;
+            }
+            .header__links{
+                list-style: none;
+                justify-content: end;
+            }
+            .header__links ul li{
+                list-style: none;
+                display: inline-block;
+                padding: 12px 12px;
+                position: relative;
+            }
+            .header__links ul li a{
+                
+                color:#fff;
+                text-decoration: none;
+                font-size: 26px;
+                transition: 0.5s;
+            }
+            .header__links ul li a:hover{
+                color:rgb(173, 249, 50);
+            }
+            .header__links i{
+                display: none;
+            }
+            .menu i{
+                display:none;
+            }
+            @media(max-width:700px){
+                .header{
+                    justify-content:space-between;
+                }
+                .header a img{
+                    align-items: start;
+                    width:150px;
+                    
+                    /* flex-direction: ; */
+                }
+                .header__links ul li{
+                    display: block;
+                }
+                .header__links{
+                    position: absolute;
+                    background-color: rgba(59, 113, 5, 0.8);
+                    width: 50%;
+                    height:50vh;
+                    top:0;
+                    border-radius: 10px;
+                    right:-200px;
+                    z-index:2;/*chi so uu tien(đè)*/
+                    transition: 0.5s;
+                }
+                .header__links ul li a{   
+                    margin-left:10px ;
+                    font-size: 17px;
+                }
+                .header__links i{
+                    display: block;
+                    color: #fff;
+                    font-size: 30px;
+                    margin-bottom: 10px;
+                    cursor: pointer;
+                }
+                .menu i{
+                    display:block;
+                    margin-left: 10px;
+                    color: #fff;
+                    font-size: 35px;
+                    cursor: pointer;
+                    margin-right: 20px;
+                }
+            }
+            /* Content */
+            
+            .applyform{
+                padding:50px 0;
+                margin: auto;
+                width: 1200px;
+            }
+            .applyform h1{
+                font-size: 44px;
+                text-align: center;
+                margin-bottom: 26px;
+                color:var(--g_color);
+            }
+            .apply__container{
+                display:flex;
+                flex-direction: column;
+                /* overflow: scroll; */
+            }
+            .apply__container__title ul{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .apply__container__title ul li{
+                font-size: 23px;
+                color:dimgray;
+                opacity: 0.8;
+            }
+            .apply__container__title ul li:hover{
+                opacity: 1;
+            }
+            .apply__container p{
+                font-size: 23px;
+                color:var(--c-color)
+            }
+            @media(max-width:700px){
+                .applyform{
+                    padding:20px 0;
+                    width: 100vw;
+                }
+                .applyform h1{
+                    font-size: 23px;
+                    margin-bottom: 17px;
+                }
+                .apply__container__title ul li{
+                    font-size:10px;
+                }
+                .apply__container p{
+                    font-size: 17px;
+                  
+                }
+            
+            }
+            
+            .apply{
+                margin-top: 20px;
+                padding: 20px 20px;
+                background-color:rgba(28, 54, 2, 0.1) ;
+            }
+            .apply h4{
+                font-size: 26px;
+                color:var(--c-color);
+                opacity: 0.8;
+                
+            }
+            .form__row{
+                display: flex;
+            }
+            .form--column{
+                display: flex;
+                flex-direction: column;
+            }
+            .form__label{
+                font-size: 23px;
+                min-width: 300px;
+            }
+            .form__input{
+                padding:10px;
+                font-size: 20px;
+                border-radius: 5px;
+                flex:1;
+                cursor: pointer;
+            }
+            .form +.form{
+                margin-top: 20px;
+            }
+            .apply p{
+                font-size: 23px;
+                padding: 0 20px;
+                color:var(--c-color);
+            }
+            .apply button{
+                text-align: center;
+                font-size: 17px;
+                border-radius: 20px;
+                padding: 10px 20px;
+                background-color:var(--button-color);
+            }
+            .button__container{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+               
+            }
+            @media(max-width:700px){
+                .apply{
+                    margin-top: 10px;
+                    padding: 5px 5px;
+                }
+                .apply h4{
+                    font-size: 17px;
+                }
+                .form__row{
+                    display: flex;
+                    flex-direction: column;
+                }
+                .form{
+                    display: flex;
+                }
+                .form +.form{
+                    margin-top: 10px;
+                }
+                .form__label{
+                    font-size: 17px;
+                    min-width: 200px;
+                }
+                .form__input{
+                    padding:0;
+                    font-size: 17px;
+                    width:90vw;
+                    margin: auto;
+                }
+            
+                .apply p{
+                    font-size: 17px;
+                    padding: 0 10px;
+                }
+                .apply button{
+                    font-size: 15px;
+                    border-radius: 20px;
+                    padding: 5px;
+                    margin-left: 80px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- header -->
+        <section class="header">
+            <a href="index.html"><img src="https://www.freeiconspng.com/thumbs/letter-o-icon-png/letter-o-icon-png-33.png" alt="" class="header__logo"></a>
+            <div class="header__links" id="headerLinks">
+                <i class="bx bx-x" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="subject.html">SUBJECT</a></li>
+                    <li><a href="apply.html">APPLY</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <div class="menu">
+                <i class="bx bx-menu" onclick="showMenu()" ></i>
+            </div>
+        </section>
+        <!-- Content -->
+        <section class="applyform">
+            <h1>Apply form</h1>
+            <div class="apply__container">
+                <div class="apply__container__title">
+                    <ul>
+                        <li>1.AGE RANGE AND COURSE</li>
+                        <li>2.PERSONAL INFORMATION</li>
+                        <li>3.EXTEND YOUR COURSE</li>
+                        <li>4.SUBMIT</li>
+                    </ul>
+                </div>
+                <p>Please complete the form below, after submitting your application, we’ll be in touch very soon to let you know the result. <br>
+                    Our goal is to share elite university study with the world – we evaluate applications based on motivation and levels of English, we’re looking forward to welcoming you onto one of our courses soon!
+                    <br>
+                    If you don’t see the course you want to apply for in the list, please contact us. <br>
+                    Frequently Asked Questions regarding COVID-19 and our summer courses in 2023.</p>            
+                </div>
+                <div class="apply">
+                    <h4>1. Age Range and Course</h4>
+                    <div class="form">
+                        <form action="">
+                            <div class="form__row">
+                                <label class="form__label" for="age">Date of birth</label>
+                                <input class="form__input" type="date" id="age" name="birth">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="form">
+                        <form action="">
+                            <div class="form__row">
+                                <label class="form__label" for="subject">Subject</label>
+                                <input class="form__input" type="text" id="subject" name="subject">
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="form">
+                        <form action="">
+                            
+                            <div class="form__row">
+                                <label class="form__label" for="location">Location and accommodation</label>
+                                <input class="form__input" type="text" id="location" name="location">
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="form">
+                        <form action="">
+                            <div class="form__row">
+                                <label class="form__label" for="dates">Dates</label>
+                                <input class="form__input" type="text" id="dates" name="dates">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="apply">
+                    <h4>2.Personal Information</h4>
+                    <div class="form">
+                        <form action="">
+                            <div class="form__row">
+                                <label class="form__label" for="f-name">First name</label>
+                                <input class="form__input" type="text" id="f-name" name="f-name">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="form">
+                        <form action="">
+                            <div class="form__row">
+                                <label class="form__label" for="l-name">Last name</label>
+                                <input class="form__input" type="text" id="l-name" name="l-name">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="form">
+                        <form action="">
+                            <div class="form__row">
+                                <label class="form__label" for="email">Email address</label>
+                                <input class="form__input" type="text" id="email" name="email">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="form">
+                        <form action="">
+                            <div class="form__row">
+                                <label class="form__label" for="phone">Phone</label>
+                            <input class="form__input" type="number" id="phone" name="phone">
+                            </div>
+                            
+                         </form>
+                    </div>
+                    <div class="form">
+                        <form action="">
+                            <div class="form__row">
+                                <label class="form__label" for="school">Current school/college/university</label>
+                                <input class="form__input" type="text" id="school" name="school">
+                            </div>
+                         </form>
+                    </div>
+                    <div class="form">
+                        <form action="">
+                            <div class="form__row form--column">
+                                <label class="form__label" for="reason">What will make you a great Oxford Summer Courses student? (This needs to be at least 50 characters and in English). Please note: we do not currently offer scholarships, this statement will be used to assess the quality of your application against our acceptance criteria.</label>
+                                <input class="form__input" type="text" id="reason" name="reason">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="apply">
+                    <h4>3. Extend your course (optional)</h4>
+                    <p>Would you like to extend your stay with us?
+                        <br>
+                       <br> What extras do you get when you book more than one course:
+                       <br>- Overnight accommodation between consecutive courses.
+                       <br>- Transport between course locations
+                       <br>- Extra weekend activities
+                       <br>- See FAQs for more details.</p>
+                </div>
+                <div class="apply">
+                    <h4>4. Submit</h4>
+                    <div class="button__container">
+                        <button>SUBMIT APPLICATION</button>
+                    </div>
+                    
+                </div>
+
+        </section>
+         <!-- JavaScript for menu -->
+
+         <script>
+            var headerLinks=document.getElementById("headerLinks");
+            function showMenu(){
+                headerLinks.style.right="0";
+            }
+            function hideMenu(){
+                headerLinks.style.right="-200px";
+            }
+        </script>
+    </body>
+</html>

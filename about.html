@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="with=device-device-width, initial-scale=1.0">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: 'EB Garamond', serif;
+                box-sizing: border-box;
+            }
+            :root{
+                --g_color: rgb(79, 124, 5);
+                --f_color:rgba(28, 54, 2, 0.4);
+                --button-color:rgba(5, 225, 5, 0.7);
+                --c-color:rgba(28, 54, 2,1);
+            }
+            /* avt */
+            .header{
+                min-height: 60vh;
+                width: 100%;
+                background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Oxford_views_by_John_Cairns_2_8_17_36_95f757a19d.webp);
+                background-position:center ;
+                background-size: cover;
+                position: relative;
+            }    
+            nav{
+                display: flex;
+                justify-content: space-between;   
+                align-items: center ;
+            }
+            nav a img{
+                width: 30%;
+            }  
+            .nav-links{
+                list-style: none;
+                justify-content: end;
+                
+            }
+            .nav-links ul li{
+                list-style: none;
+                display: inline-block;
+                padding: 8px 12px;
+                position: relative;
+            }
+            .nav-links ul li a{
+                
+                color:#fff;
+                text-decoration: none;
+                font-size: 26px;
+                transition: 0.5s;
+            }
+            .nav-links ul li a:hover{
+                color:rgb(173, 249, 50);
+            }
+
+            .text-box{
+                width: 90%;
+                position: absolute;
+                text-align: center;
+                top: 45%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                
+            }
+            .text-box-title{
+                font-size: 62px;
+                color:#fff
+            }
+
+            .nav-links i{
+                display: none;
+            }
+            .menu i{
+                display:none;
+            }
+
+            @media(max-width:700px){
+                nav a img{
+                    align-items: start;
+                    width:200px;
+                    /* flex-direction: ; */
+                }
+                .text-box-title{
+                    font-size: 26px;
+                    color:#fff ;
+                }
+                .nav-links ul li{
+                    display: block;
+                }
+                .nav-links{
+                    position: absolute;
+                    background-color: rgba(59, 113, 5, 0.8);
+                    width: 50%;
+                    height:60vh;
+                    top:0;
+                    border-radius: 10px;
+                    right:-200px;
+                    z-index:2;/*chi so uu tien(đè)*/
+                    transition: 0.5s;
+                }
+                .nav-links ul li a{   
+                    margin-left:10px ;
+                    font-size: 17px;
+                }
+                .nav-links i{
+                    display: block;
+                    color: #fff;
+                    font-size: 30px;
+                    margin-bottom: 10px;
+                    cursor: pointer;
+                }
+                .menu i{
+                    display:block;
+                    margin-left: 10px;
+                    color: #fff;
+                    font-size: 35px;
+                    cursor: pointer;
+                }
+            }  
+            /* Card */
+            .card{
+                width: 100%;
+                background-image:url(https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/static/lightLogoGradient_ri7rii.webp) ;
+                background-size: cover;
+                background-repeat: no-repeat;
+                padding: 50px 20vw;
+            }
+            .card h1{
+                font-size:44px ;
+                color: var(--g_color);
+            }
+            .card h2{
+                font-size: 35px;
+                color:rgba(28, 54, 2, 0.8);
+            }
+            .card__content{
+                display: flex;
+                justify-content:space-between;
+            }
+            .card__content img{
+                max-width: 30vw;
+                
+            }
+            .card__content__des{
+                flex-basis: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .card__content__des p{
+                font-size: 26px;
+                color:rgba(28, 54, 2,1);
+            }
+            .card__content__des h4{
+                max-height: 200px;
+                bottom: 0%;
+                flex:1;
+                text-align: center;
+                background-color: var(--f_color);
+                border-radius: 10px;
+                color: #fff;
+                font-size: 26px;
+                padding: 20px 0;
+                
+            }
+            .card+ .card{
+                margin-top:26px;
+            }
+            @media(max-width:700px){
+                .card{
+                    padding:0;
+                }
+                .card h1{
+                    font-size:26px ;
+                }
+                .card h2{
+                    font-size: 26px;
+                }
+                .card__content{
+                    flex-direction: column;
+                }
+                .card__content img{
+                    max-width: 100vw;
+                }
+                .card__content__des p{
+                    font-size: 17px;
+                }
+                .card__content__des h4{
+                    width: 60%;
+                    margin:auto;
+                    max-height: 200px;
+                    font-size: 17px;
+                    padding: 20px 0;
+                }
+            }
+            /* values */
+            .value{
+                display: flex;
+                padding: 50px 440px;
+                justify-content: space-between;
+            }
+            .value--l{
+                background-color: rgba(0,0,0,0.08);
+            }
+            .value img{
+                max-height: 500px;
+            }
+            .value__content{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .value__content h1{
+                font-size: 44px;
+                color:var(--g_color)
+            }
+            .value__content p{
+                font-size: 26px;
+                color:var(--c-color)
+            }
+            .value + .value{
+                margin-top:26px;
+            }
+            @media(max-width:700px){
+                .value{
+                    padding: 0;
+                    flex-direction: column;
+                }
+                .value--c{
+                    flex-direction:column-reverse;
+                }
+                .value__content h1{
+                    font-size: 26px;
+                    color:var(--g_color)
+                }
+                .value__content p{
+                    font-size: 17px;
+                    color:var(--c-color)
+                }
+            }
+            /* Footer */
+            .footer{
+                display: flex;
+                align-items:center ;
+                justify-content: center;
+                flex-direction: column;
+                background-color: var(--f_color);
+                height: 17vh;
+            }
+            .footer h4{
+                font-size: 26px;
+                color:#fff;
+            }
+            .footer p{ 
+                margin-top: 17px;
+                color:#fff;
+                font-size: 17px;
+            }
+            .icon{
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .icon .bx{
+                margin-left: 5px;
+                margin-right: 5px;
+                cursor: pointer;
+                color:var(--f_color);
+            }
+            .footer button{
+                width: 180px;
+                background-color:var(--button-color);
+                border-radius: 10px;
+            }
+            .footer button a{
+                color: #fff;
+                border-color: #fff;
+                font-size: 23px;
+                text-decoration: none;
+            }
+            @media(max-width:700px){
+                .footer h4{
+                    font-size: 17px;
+                }
+                .icon{
+                    text-align: center;
+                    margin-bottom: 0px;
+                }
+                .footer button a{
+                    font-size: 17px;
+                }
+                .footer p{ 
+                    margin-top: 5px;
+                    font-size: 12px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <section class="header">
+            <nav>
+                <a href="index.html"><img src="https://images.squarespace-cdn.com/content/v1/57d155c39de4bbd9d3069285/1593776522976-H6ROQ0OOZRV1RWSYYV8R/oxford+university+logo+update.png" alt=""></a>
+                <div class="nav-links" id="navLinks">
+                    <i class="bx bx-x" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="subject.html">SUBJECT</a></li>
+                        <li><a href="apply.html">APPLY</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                    </ul>
+                </div>
+                <div class="menu">
+                    <i class="bx bx-menu" onclick="showMenu()" ></i>
+                </div>
+            </nav>
+            <div class="text-box">
+                <h1 class="text-box-title">About Us</h1>  
+            </div>
+        </section>
+        <!-- card -->
+        <section class="card">
+            <h1>Our Story</h1>
+            <h2>Born in Oxford</h2>
+            <div class="card__content">
+                <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/3_IMG_5857_1_860de341fb.webp" alt="">
+                <div class="card__content__des">
+                    <p>When two school friends graduated from the University of Oxford, they had an idea: how about sharing the remarkable experience with the world? And so, in 2010, Oxford Summer Courses was born.
+                       <br> The founding principles were pretty simple. An honest and authentic taste of Oxford education, Oxford living, and Oxford culture, all served up by Oxford insiders.                       
+                       <br> The very same principles that guide our organisation today (and tomorrow).</p>
+                    <h4>Established by two school <br> friends and Oxford alumni</h4>
+                
+                </div>
+                </div>
+        </section>
+        <section class="card">
+            <h1>Raised in Cambridge</h1>
+            <div class="card__content">
+                <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_Cambridge_by_John_Cairns_3_8_18_6_f37ce2f7be.webp" alt="">
+                <div class="card__content__des">
+                    <p>After welcoming more and more people to our growing range of courses, we turned our attention to Oxford’s sister city and university.
+                       <br> Rather than transporting our existing model to Cambridge, we began again. Building a network of local experts – just as we had in Oxford – to tap into the true magic of the place.                   
+                       <br> A distinctive approach to natural sciences, unique interdisciplinary courses, and a whole new cultural adventure.                       
+                       <br> We’d arrived in Cambridge.v</p>
+                    <h4>Two world-class university settings</h4>
+                </div>
+                </div>
+
+        </section>
+        <section class="card">
+            <h1>Back To School</h1>
+            <h2>For students aged 9-12</h2>
+            <div class="card__content">
+                <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/2_IMG_7679_9611a8e946.webp" alt="">
+                <div class="card__content__des">
+                    <p>We’re here to inspire a love for learning, and the earlier the better. So we decided to open the door to younger students as well.
+                      <br>  While it made sense for those of (and approaching) university age to join us in a university town, we felt our students aged 12-years-old and younger deserved a bespoke approach.                        
+                      <br>  With the help of our experts we crafted a suite of fun and interactive courses at one of the most prestigious boarding schools in the UK.</p>
+                    <h4>Interactive classroom learning for juniors</h4>
+                </div>
+                </div>
+
+        </section>
+        <section class="card">
+            <h1>Moved To London</h1>
+            <div class="card__content">
+                <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/OSC_London_by_John_Cairns_13_7_18_140_wecompress_com_30f815dfaa.webp" alt="">
+                <div class="card__content__des">
+                    <p>We had more to share, such as the entrepreneurial spirit that helped create Oxford Summer Courses in the first place. Next stop: London.
+
+                       <br> Here, the focus of our courses was excellence in industry, real-world problem solving and cutting-edge skills.
+                        
+                       <br> Tapping into this global powerhouse with a first-rate team of academics, leading professionals and London locals.</p>
+                    <h4>Immersive project-based learning in the UK capital</h4>
+                </div>
+                </div>
+
+        </section>
+        <section class="card">
+            <h1>Travelled the world</h1>
+            <div class="card__content">
+                <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Oxford_19_1_of_1_60_wecompress_com_d8466daa36.webp" alt="">
+                <div class="card__content__des">
+                    <p>What if people can’t come to us? Well, we might just come to them.
+
+                     <br>   Over the years we’ve partnered with schools and universities in Chile, India and the USA to help deliver courses that are truly sensitive to the needs and potential in each location. It’s a world of opportunity.</p>
+                    <h4>Building our global footprint</h4>
+                </div>
+                </div>
+
+        </section> 
+        
+        <section class="card">
+            <h1>Started a Family</h1>
+            <div class="card__content">
+                <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/IMG_4514_1_wecompress_com_401d66f7c2.webp" alt="">
+                <div class="card__content__des">
+                    <p>We’ve been busy working on other education projects too. Helping international students acclimatise to UK life, providing online tuition, and more.
+
+                      <br>  We’ve even founded a charity that helps students from disadvantaged backgrounds boost their learning (and confidence) so they can go on to university.
+                        
+                       <br> The latest chapter in our story is bringing all of these projects together as one: the Bridgemark family.
+                        
+                       <br> It won’t really change what we do but it will help us share knowledge, ideas and fresh approaches in a powerful new way.</p>
+                        <h4>Establishing the Bridgemark family</h4>
+                </div>
+                </div>
+
+        </section>
+         <!-- values -->
+         <section class="value value--c">
+            <div class="value__content">
+                <h1>Our Values</h1>
+                <p>Driven by a mission to share exceptional educational experiences with as many students as possible, we have six distinct values that underpin everything we do as a community, helping us deliver excellent learning opportunities.</p>
+            </div>
+        </section>
+        <section class="value value--l">
+            <div class="value__content">
+                <h1>Growth Mindset</h1>
+                <p>We have a strong sense of adventure and are always willing to learn from our mistakes. We challenge our colleagues to reach their full potential and always strive towards pushing ourselves out of our comfort zone and into the learning zone.</p>
+            </div>
+            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Growth_mindset_final_2_3_c5fd3a77f9.webp" alt="">
+        </section>
+        <section class="value value--c">
+            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Wellbeing_final_3_4d125ac315.webp" alt="">
+            <div class="value__content">
+                <h1>Wellbeing</h1>
+                <p>We prioritise a healthy work-life balance and place wellbeing at the centre of everyday operations at the company. We look out for our colleagues, show care and consideration to one another, and are mindful of each other’s workloads.</p>
+            </div>
+        </section>
+        <section class="value value--l">
+            <div class="value__content">
+                <h1>Student Impact</h1>
+                <p>Student experience lies at the heart of everything we do. We set high standards and act with the purpose of improving the life chances of young people who come on our summer courses.</p>
+            </div>
+            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Student_impact_final_3_4071ba4357.webp" alt="">
+        </section>
+        <section class="value value--c">
+            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Camaraderie_final_3_a02afeb8e4.webp" alt="">
+            <div class="value__content">
+                <h1>Camaraderie</h1>
+                <p>We always support our colleagues and adopt a ‘say yes first’ approach to testing new ideas. Trust, empathy and friendship are at the centre of our workforce and we never play the blame game.</p>
+            </div>
+        </section>
+        <section class="value value--l">
+            <div class="value__content">
+                <h1>Agility</h1>
+                <p>Test, improve, adapt – onwards and upwards!</p>
+            </div>
+            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Agility_final_3_936726fc60.webp" alt="">
+        </section>
+        <section class="value value--c">
+            <img src="https://res.cloudinary.com/oxford-summer-courses/image/upload/if_iw_gt_1801/c_scale,w_1800/if_end/q_20/dpr_auto/Building_community_final_3_0a211b6013.webp" alt="">
+            <div class="value__content">
+                <h1>Building Community</h1>
+                <p>Across like-minded students, our tutor network, and healthy relationships in head office, all while creating a positive impact on society and the wider environment.</p>
+            </div>
+        </section>
+        <!-- Footer -->
+        <section class="footer">
+            <h4>About US</h4>
+            <div class="icon">
+                <i class='bx bxl-facebook' ></i>
+                <i class='bx bxl-twitter' ></i>
+                <i class='bx bxl-instagram-alt' ></i>
+                <i class='bx bxl-youtube' ></i>
+                <i class='bx bxl-linkedin' ></i>
+            </div>
+            <button><a href="apply.html">Apply Now</a></button>
+           <p>Oxford Summer Courses is an organisation which contracts with the colleges of the Universities of Oxford, Cambridge and London for the use of facilities, but which has no formal connection with the Universities of Oxford, Cambridge and London.</p>
+        </section>
+
+
+        
+        <!-- JavaScript for menu -->
+
+        <script>
+            var navLinks=document.getElementById("navLinks");
+            function showMenu(){
+                navLinks.style.right="0";
+            }
+            function hideMenu(){
+                navLinks.style.right="-200px";
+            }
+        </script>
+    </body>
+</html>

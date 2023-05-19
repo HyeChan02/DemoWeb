@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="with=device-device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap" rel="stylesheet">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: 'EB Garamond', serif;
+                box-sizing: border-box;
+            }
+            :root{
+                --g_color: rgb(79, 124, 5);
+                --f_color:rgba(28, 54, 2, 0.4);
+                --button-color: rgba(5, 183, 5, 0.6);
+                --c-color:rgba(28, 54, 2,1);
+            }
+            /* header */
+            .header{
+                margin:auto;
+                background-color: var(--f_color);
+                display: flex;
+                flex-direction: row;
+                justify-content:center;
+            }
+            .header__logo{
+                max-width: 30%;
+            }
+            .header__links{
+                list-style: none;
+                justify-content: end;
+            }
+            .header__links ul li{
+                list-style: none;
+                display: inline-block;
+                padding: 12px 12px;
+                position: relative;
+            }
+            .header__links ul li a{
+                
+                color:#fff;
+                text-decoration: none;
+                font-size: 26px;
+                transition: 0.5s;
+            }
+            .header__links ul li a:hover{
+                color:rgb(173, 249, 50);
+            }
+            .header__links i{
+                display: none;
+            }
+            .menu i{
+                display:none;
+            }
+            @media(max-width:700px){
+                .header{
+                    justify-content:space-between;
+                }
+                .header a img{
+                    align-items: start;
+                    width:150px;
+                    
+                    /* flex-direction: ; */
+                }
+                .header__links ul li{
+                    display: block;
+                }
+                .header__links{
+                    position: absolute;
+                    background-color: rgba(59, 113, 5, 0.8);
+                    width: 50%;
+                    height:50vh;
+                    top:0;
+                    border-radius: 10px;
+                    right:-200px;
+                    z-index:2;/*chi so uu tien(đè)*/
+                    transition: 0.5s;
+                }
+                .header__links ul li a{   
+                    margin-left:10px ;
+                    font-size: 17px;
+                }
+                .header__links i{
+                    display: block;
+                    color: #fff;
+                    font-size: 30px;
+                    margin-bottom: 10px;
+                    cursor: pointer;
+                }
+                .menu i{
+                    display:block;
+                    margin-left: 10px;
+                    color: #fff;
+                    font-size: 35px;
+                    cursor: pointer;
+                    margin-right: 20px;
+                }
+            }
+            /* Map */
+            .maps{
+                margin:80px auto 0;
+                display: flex;
+                justify-content: center;
+            }
+            .map{
+                min-width: 1700px;
+                min-height: 50vh;
+                
+            }
+            @media(max-width:700px){
+                .maps{
+                    margin:0;
+                }
+                .map{
+                    min-width: 100%;
+                    min-height: 50vh;
+                    
+                }
+            }
+            /* Content */
+            .Container{
+                max-width: 1700px;
+                margin:100px auto 100px;
+               display: flex;
+               flex-direction: row-reverse;
+               justify-content: space-between;
+            }
+            .inf{
+                min-width: 40%;
+                transform: translateY(40%);
+            }
+            .inf__c + .inf__c{
+                margin-top: 35px;
+            }
+            .inf__c{
+                display: flex;
+            }
+            .bx{
+                font-size: 35px;
+                color: var(--g_color);
+            }
+            .content h2{
+                font-size: 26px;
+                color:var(--g_color);
+            }
+            .content p{
+                font-size: 17px;
+                color: var(--c-color);
+            }
+            .mess{
+                flex:2;
+                
+            }
+            .field {
+                margin-bottom: 10px;
+            }
+
+            .field label {
+                display: block;
+                font-size: 26px;
+                color: var(--g_color);
+            }
+
+            .field input {
+                display: block;
+                min-width:100% ;
+                line-height: 1.5;
+                font-size: 17px;
+                border-radius: 5px;
+                border-color: var(--c_color);
+            }
+
+            input[type="submit"] {
+                display: block;
+                padding: 6px 30px;
+                font-size: 14px;
+                background-color:var(--button-color);
+                margin:auto;
+                color: #fff;
+                border-radius: 50px;
+            }
+            .mess h1{
+                font-size: 35px;
+                color:var(--g_color);
+                margin-bottom: 26px;
+                
+            }
+            @media(max-width:700px){
+                .Container{
+                    max-width: 100%;
+                    margin:50px auto 0;
+                    flex-direction: column;
+                }
+                .inf{
+                    transform: translateY(0);
+                    margin :26px;
+                }
+                .inf__c + .inf__c{
+                    margin-top: 17px;
+                }
+                .inf__c{
+                    display: flex;
+                }
+                .bx{
+                    font-size: 23px;
+                }
+                .content h2{
+                    font-size: 17px;
+                }
+                .content p{
+                    font-size: 12px;
+                }
+
+                .mess h1{
+                    font-size: 26px;
+                    color:var(--g_color);
+                    margin-bottom: 17px;
+                    
+                }
+                
+            }
+            /* Footer */
+.footer{
+    display: flex;
+    align-items:center ;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--f_color);
+    height: 17vh;
+}
+.footer h4{
+    font-size: 26px;
+    color:#fff;
+}
+.footer p{ 
+    margin-top: 17px;
+    color:#fff;
+    font-size: 17px;
+}
+.icon{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.icon .bx{
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    color:var(--f_color);
+}
+.footer button{
+    width: 180px;
+    background-color:var(--button-color);
+    border-radius: 10px;
+}
+.footer button a{
+    color: #fff;
+    border-color: #fff;
+    font-size: 23px;
+    text-decoration: none;
+}
+@media(max-width:700px){
+    .footer h4{
+        font-size: 17px;
+    }
+    .icon{
+        text-align: center;
+        margin-bottom: 0px;
+    }
+    .footer button a{
+        font-size: 17px;
+    }
+    .footer p{ 
+        margin-top: 5px;
+        font-size: 12px;
+    }
+}
+        </style>
+    </head>
+    <body>
+        <!-- header -->
+        <section class="header">
+            <a href="index.html"><img src="https://www.freeiconspng.com/thumbs/letter-o-icon-png/letter-o-icon-png-33.png" alt="" class="header__logo"></a>
+            <div class="header__links" id="headerLinks">
+                <i class="bx bx-x" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="subject.html">SUBJECT</a></li>
+                    <li><a href="apply.html">APPLY</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <div class="menu">
+                <i class="bx bx-menu" onclick="showMenu()" ></i>
+            </div>
+        </section>
+        <!-- map -->
+        <section>
+            <div class="maps">
+                 <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2469.8084032919082!2d-1.2639278837698662!3d51.75482700040224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876c6ae3c8322ef%3A0x73416d02eaaf5da2!2sOxford%20Summer%20Courses!5e0!3m2!1svi!2s!4v1680364318493!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+        <!-- Content -->
+        <section class="Container">
+            <div class="mess">
+                <h1>Contact Us</h1>
+                <form id="form">
+                    <form id="form">
+                        <div class="field">
+                          <label for="name">Name</label>
+                          <input type="text" name="name" id="name" placeholder="Full name...">
+                        </div>
+                        <div class="field">
+                          <label for="email">Email</label>
+                          <input type="text" name="email" id="email" placeholder="Your email...">
+                        </div>
+                        <div class="field">
+                          <label for="country">Country</label>
+                          <input type="text" name="country" id="country" placeholder="Your country...">
+                        </div>
+                        <div class="field">
+                          <label for="query">Query</label>
+                          <input type="text" name="query" id="query" placeholder="Your query">
+                        </div>
+                        <div class="field">
+                          <label for="message">Message</label>
+                          <input type="text" name="message" id="message" placeholder="message">
+                        </div>
+                      
+                        <input type="submit" id="button" value="Send Message" >
+                    </form>
+            </div>
+            <div class="inf">
+                <div class="inf__c">
+                    <i class='bx bx-home'></i>
+                    <div class="content">
+                        <h2>18 Beaumont Street - Oxford</h2>
+                        <p> OX1 2NA, United Kingdom</p>
+                    </div>
+                    
+                </div>
+                <div class="inf__c">
+                    <i class='bx bx-phone-call' ></i>
+                    <div class="content">
+                        <h2>+44 01865 818403</h2>
+                        <p>Monday to Saturday 8am to 6pm </p>
+                    </div>
+                    
+                </div>
+                <div class="inf__c">
+                    <i class='bx bx-envelope' ></i>
+                    <div class="content">
+                        <h2>info@oxfordsummercourses.com</h2>
+                        <p>Email us your query</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <section class="footer">
+            <h4>About US</h4>
+            <div class="icon">
+                <i class='bx bxl-facebook' ></i>
+                <i class='bx bxl-twitter' ></i>
+                <i class='bx bxl-instagram-alt' ></i>
+                <i class='bx bxl-youtube' ></i>
+                <i class='bx bxl-linkedin' ></i>
+            </div>
+            <button><a href="apply.html">Apply Now</a></button>
+           <p>Oxford Summer Courses is an organisation which contracts with the colleges of the Universities of Oxford, Cambridge and London for the use of facilities, but which has no formal connection with the Universities of Oxford, Cambridge and London.</p>
+        </section>
+        <!-- JavaScript for message -->
+        
+            <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+            <script type="text/javascript">
+            emailjs.init('f_25rOoPKrWsxnAPk')
+            </script>
+       
+            <script>
+                const btn = document.getElementById('button');
+
+                document.getElementById('form')
+                .addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                btn.value = 'Sending...';
+
+                const serviceID = 'default_service';
+                const templateID = 'template_9pc2rze';
+
+                emailjs.sendForm(serviceID, templateID, this)
+                    .then(() => {
+                    btn.value = 'Send Email';
+                    alert('Sent!');
+                    }, (err) => {
+                    btn.value = 'Send Email';
+                    alert(JSON.stringify(err));
+                    });
+                });
+            </script>
+
+        
+         <!-- JavaScript for menu -->
+
+         <script>
+            var headerLinks=document.getElementById("headerLinks");
+            function showMenu(){
+                headerLinks.style.right="0";
+            }
+            function hideMenu(){
+                headerLinks.style.right="-200px";
+            }
+        </script>
+    </body>
+</html>
